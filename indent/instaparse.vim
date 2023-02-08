@@ -25,16 +25,17 @@ let b:instaparse_indentifier="[a-zA-Z-]\\w*"
 "      | bar
 "      | baz
 "
-"      ^ matches the indenation of '|' to the preceding '='
+"      ^ matches the indentation of '|' to the preceding '='
 function InstaparseIndent(lnum)
     let curline = getline(a:lnum)
     let indent = indent(lnum)
 
     if (curline =~ '^\s*|')
-        let start_regex = b:instaparse_indentifier . "\\s*" . b:instaparse_rule
-        let start = search(start_regex, 'bW')
-        let start_line = getline(start)
-        let indent = match(start_line, b:instaparse_rule)
+        let rule_regex = b:instaparse_indentifier . "\\s*" . b:instaparse_rule
+        let rule = search(rule_regex, 'bW')
+        let rule_line = getline(rule)
+        let rule_pos = match(rule_line, b:instaparse_rule)
+        let indent = rule_pos
     endif
     return indent
 endfunction
