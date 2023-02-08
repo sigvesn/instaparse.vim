@@ -1,0 +1,9 @@
+(* Example grammar with gruvbox theme *)
+sentence   = token (<whitespace> token)*
+<token>    = word
+           | number
+whitespace = #'\\s+'
+word       = letter+
+number     = digit+
+<letter>   = #'[a-zA-Z]'
+<digit>    = #'[0-9]'
