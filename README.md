@@ -8,7 +8,7 @@ Highlighting rules for the [instaparse notatation](https://github.com/engelberg/
 
 <img src="images/example.png?raw=true" alt="Example Highlight"/>
 
-*Alpha state: not yet tested in any other configurations*
+*Alpha state: not tested for many types of instaparse grammars*
 
 ## Indentation
 
@@ -24,11 +24,19 @@ Install with any plugin manager e.g.,
 Plug 'sigvesn/instaparse.vim'
 ```
 
-The following options needs set in your vim configuration if features are to be enabled
+The following options needs set in your vim configuration if the features are to be enabled
 
 ```vim
 syntax on
 filetype plugin indent on
+```
+
+## Usage
+
+Set the filetype manually or detect it automatically with an autocommand
+
+```vim
+au BufRead,BufNewFile *.instaparse set filetype=instaparse
 ```
 
 ## Bonus
